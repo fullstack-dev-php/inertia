@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('restaurant_id')->constrained('restaurants')->cascadeOnDelete();
+           $table->string('name');
+           $table->string('status')->default('active');
+           $table->string('price');
             $table->timestamps();
         });
     }
