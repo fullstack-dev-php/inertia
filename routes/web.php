@@ -5,6 +5,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\VisitController;
 use App\Models\Visit;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,6 +19,15 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/visits', function () {
+    $visits = Visit::paginate(2);
+    return Inertia::render('Visits/Index', [
+        'visits' => $visits
+    ]);
+})->name('visits.index');
+Route::get('/api/visits', function (Request $request) {
+    return Visit::paginate(2);
+})->name('visits.load_more');
 
 Route::get('upload-view', function () {
     return view('upload');
@@ -37,7 +47,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $visits=Visit::get()->where('status','active')->groupBy('name');
+    $visits=Visit::paginate(2);
     return Inertia::render('Dashboard',compact('visits'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
