@@ -18,6 +18,9 @@
         "vue": "^3.4.0"
     },
     "dependencies": {
-        "@inertiajs/inertia-vue3": "^0.6.0"
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@vee-validate/zod": "^4.15.0",
+        "vee-validate": "^4.15.0",
+        "zod": "^3.24.2"
     }
 }

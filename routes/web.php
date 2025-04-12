@@ -25,6 +25,9 @@ Route::get('/visits', function () {
         'visits' => $visits
     ]);
 })->name('visits.index');
+Route::get('/images', function () {
+    return Inertia::render('Image');
+});
 Route::get('/api/visits', function (Request $request) {
     return Visit::paginate(2);
 })->name('visits.load_more');
