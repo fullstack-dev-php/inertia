@@ -19,19 +19,21 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/theme', function () {
+    return Inertia::render('Theme/Index');
+})->name('theme.index');
 Route::get('/visits', function () {
     $visits = Visit::paginate(2);
     return Inertia::render('Visits/Index', [
         'visits' => $visits
     ]);
 })->name('visits.index');
-Route::get('/images', function () {
-    return Inertia::render('Image');
-});
 Route::get('/api/visits', function (Request $request) {
     return Visit::paginate(2);
 })->name('visits.load_more');
-
+Route::get('/images', function () {
+    return Inertia::render('Image');
+});
 Route::get('upload-view', function () {
     return view('upload');
 });
