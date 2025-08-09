@@ -20,7 +20,9 @@
     "dependencies": {
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@vee-validate/zod": "^4.15.0",
+        "flatpickr": "^4.6.13",
         "vee-validate": "^4.15.0",
+        "vue-flatpickr-component": "^11.0.5",
         "zod": "^3.24.2"
     }
 }

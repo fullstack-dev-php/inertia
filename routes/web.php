@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\VisitController;
+use App\Models\Theme;
 use App\Models\Visit;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -19,9 +20,21 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/theme', function () {
     return Inertia::render('Theme/Index');
 })->name('theme.index');
+Route::get('api/theme', function () {
+    $themes = Theme::paginate(20);
+    return response()->json([
+        "success" => true,
+        "data" => [
+            "data" => $themes->items(),
+            "last_page" => $themes->lastPage(),
+        ],
+        "message" => ""
+    ]);
+})->name('theme.paginated');
 Route::get('/visits', function () {
     $visits = Visit::paginate(2);
     return Inertia::render('Visits/Index', [
@@ -52,8 +65,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $visits=Visit::paginate(2);
-    return Inertia::render('Dashboard',compact('visits'));
+    $visits = Visit::paginate(2);
+    return Inertia::render('Dashboard', compact('visits'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -62,4 +75,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -14,9 +14,15 @@ importers:
       '@vee-validate/zod':
         specifier: ^4.15.0
         version: 4.15.1(vue@3.5.18)(zod@3.25.76)
+      flatpickr:
+        specifier: ^4.6.13
+        version: 4.6.13
       vee-validate:
         specifier: ^4.15.0
         version: 4.15.1(vue@3.5.18)
+      vue-flatpickr-component:
+        specifier: ^11.0.5
+        version: 11.0.5(vue@3.5.18)
       zod:
         specifier: ^3.24.2
         version: 3.25.76
@@ -608,6 +614,9 @@ packages:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
 
+  flatpickr@4.6.13:
+    resolution: {integrity: sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==}
+
   follow-redirects@1.15.11:
     resolution: {integrity: sha512-deG2P0JfjrTxl50XGCDyfI97ZGVCxIpfKYmfyrQ54n5FO/0gfIES8C/Psl6kWVDolizcaaxZJnTS0QSMxvnsBQ==}
     engines: {node: '>=4.0'}
@@ -1054,6 +1063,12 @@ packages:
         optional: true
       terser:
         optional: true
+
+  vue-flatpickr-component@11.0.5:
+    resolution: {integrity: sha512-Vfwg5uVU+sanKkkLzUGC5BUlWd5wlqAMq/UpQ6lI2BCZq0DDrXhOMX7hrevt8bEgglIq2QUv0K2Nl84Me/VnlA==}
+    engines: {node: '>=14.13.0'}
+    peerDependencies:
+      vue: ^3.2.0
 
   vue@3.5.18:
     resolution: {integrity: sha512-7W4Y4ZbMiQ3SEo+m9lnoNpV9xG7QVMLa+/0RFwwiAVkeYoyGXqWE85jabU4pllJNUzqfLShJ5YLptewhCWUgNA==}
@@ -1596,6 +1611,8 @@ snapshots:
     dependencies:
       to-regex-range: 5.0.1
 
+  flatpickr@4.6.13: {}
+
   follow-redirects@1.15.11: {}
 
   foreground-child@3.3.1:
@@ -2023,6 +2040,11 @@ snapshots:
       rollup: 4.46.2
     optionalDependencies:
       fsevents: 2.3.3
+
+  vue-flatpickr-component@11.0.5(vue@3.5.18):
+    dependencies:
+      flatpickr: 4.6.13
+      vue: 3.5.18
 
   vue@3.5.18:
     dependencies:
